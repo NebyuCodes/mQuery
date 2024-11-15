@@ -1,0 +1,36 @@
+{
+  "name": "mquery",
+  "version": "1.0.0",
+  "description": "mQuery is a lightweight and efficient utility for TypeScript and Node.js applications that streamlines MongoDB queries. ",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./dist/inde.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/NebyuCodes/mQuery.git"
+  },
+  "keywords": [
+    "MongoDB",
+    "Mongoose",
+    "Query",
+    "Node.js",
+    "TypeScript",
+    "API",
+    "Features"
+  ],
+  "author": "Nebyu Samuel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NebyuCodes/mQuery/issues"
+  },
+  "homepage": "https://github.com/NebyuCodes/mQuery#readme",
+  "dependencies": {
+    "mongoose": "^8.8.1"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.11.96",
+    "typescript": "^5.6.3"
+  }
+}
