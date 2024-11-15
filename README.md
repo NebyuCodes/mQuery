@@ -19,18 +19,25 @@ npm install mongoose
 ### Importing class
 ```typescript
 import MQuery from './path/to/MQuery';
-import { YourModel } from './path/to/yourModel'; // Replace with your actual model
+import { Document } from 'mongoose';
+
+interface YourDocument extends Document {
+  title: string;
+  description: string;
+  // Add other fields as necessary
+}
 ```
 ### Example Implementation
 
 ```typescript
 import { Request, Response } from 'express';
-import { YourModel } from './yourModel'; // Replace with your actual model
 import MQuery from './MQuery'; // Adjust the import path
+import { YourDocument } from './yourDocumentInterface'; // Adjust the path to your interface
+import { YourModel } from './yourModel'; // Replace with your actual model
 
 export const getItems = async (req: Request, res: Response) => {
   try {
-    const features = new MQuery<YourModel>(
+    const features = new MQuery<YourDocument>(
       YourModel.find(),
       ['title', 'description'], // Specify searchable fields
       req.query
