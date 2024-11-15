@@ -1,6 +1,6 @@
 import { Query, Document } from "mongoose";
 
-export default class APIFeatures<T extends Document> {
+export class MQuery<T extends Document> {
   reqQuery: RequestQuery = {};
   dbQuery: Query<T[], T>;
   searchFields: string[];
@@ -17,7 +17,7 @@ export default class APIFeatures<T extends Document> {
     }
   }
 
-  filter(): APIFeatures<T> {
+  filter(): MQuery<T> {
     let queryObj = { ...this.reqQuery };
     const excludedFields = ["page", "sort", "limit", "fields"];
     excludedFields.forEach(function (el) {
@@ -43,7 +43,7 @@ export default class APIFeatures<T extends Document> {
     return this;
   }
 
-  sort(): APIFeatures<T> {
+  sort(): MQuery<T> {
     if (this.reqQuery.sort) {
       const sortValue: string = this.reqQuery.sort;
       this.dbQuery.sort(sortValue.split(",").join(" "));
@@ -53,7 +53,7 @@ export default class APIFeatures<T extends Document> {
     return this;
   }
 
-  project(): APIFeatures<T> {
+  project(): MQuery<T> {
     if (this.reqQuery.fields) {
       const projectValue = this.reqQuery.fields;
       this.dbQuery.select(projectValue.split(",").join(" "));
@@ -63,7 +63,7 @@ export default class APIFeatures<T extends Document> {
     return this;
   }
 
-  paginate(): APIFeatures<T> {
+  paginate(): MQuery<T> {
     const page = this.reqQuery.page || 1;
     const limit = this.reqQuery.limit || 10;
     const skip = (page - 1) * limit;
