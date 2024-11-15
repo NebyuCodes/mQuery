@@ -12,16 +12,18 @@
 ## Installation
 
 To install the necessary dependencies, use npm:
+```bash
 npm install mongoose
-
+```
 ## Usage
 ### Importing class
-
+```typescript
 import MQuery from './path/to/MQuery';
 import { YourModel } from './path/to/yourModel'; // Replace with your actual model
-
+```
 ### Example Implementation
 
+```typescript
 import { Request, Response } from 'express';
 import { YourModel } from './yourModel'; // Replace with your actual model
 import MQuery from './MQuery'; // Adjust the import path
@@ -54,7 +56,7 @@ export const getItems = async (req: Request, res: Response) => {
     });
   }
 };
-
+```
 ### Class methods and properties
 * constructor(dbQuery: Query<T[], T>, searchFields: string[], reqQuery?: RequestQuery): Initializes the MQuery instance.
 * dbQuery: Mongoose query object.
